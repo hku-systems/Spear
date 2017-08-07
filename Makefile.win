@@ -1,0 +1,46 @@
+# Project: Project2
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o wifiContainer.o HedisContainer.o HelloContainer.o SearchlightContainer.o UconnectContainer.o QuorumContainer.o
+LINKOBJ  = main.o wifiContainer.o HedisContainer.o HelloContainer.o SearchlightContainer.o UconnectContainer.o QuorumContainer.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = spear.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+wifiContainer.o: wifiContainer.cpp
+	$(CPP) -c wifiContainer.cpp -o wifiContainer.o $(CXXFLAGS)
+
+HedisContainer.o: HedisContainer.cpp
+	$(CPP) -c HedisContainer.cpp -o HedisContainer.o $(CXXFLAGS)
+
+HelloContainer.o: HelloContainer.cpp
+	$(CPP) -c HelloContainer.cpp -o HelloContainer.o $(CXXFLAGS)
+
+SearchlightContainer.o: SearchlightContainer.cpp
+	$(CPP) -c SearchlightContainer.cpp -o SearchlightContainer.o $(CXXFLAGS)
+
+UconnectContainer.o: UconnectContainer.cpp
+	$(CPP) -c UconnectContainer.cpp -o UconnectContainer.o $(CXXFLAGS)
+
+QuorumContainer.o: QuorumContainer.cpp
+	$(CPP) -c QuorumContainer.cpp -o QuorumContainer.o $(CXXFLAGS)
